@@ -1,11 +1,9 @@
-import { z } from 'zod';
-import { baseProcedure, createTRPCRouter } from '../init';
+import { createTRPCRouter } from '../init';
+import { workflowsRouter } from '@/features/workflows/server/routers';
+
 export const appRouter = createTRPCRouter({
-  getUsers: baseProcedure.query(() => {
-      return {
-        // TODO получить всех пользователей из БД,
-      };
-    }),
+  workflows: workflowsRouter
 });
+
 // export type definition of API
 export type AppRouter = typeof appRouter;
